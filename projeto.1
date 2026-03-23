@@ -1,1 +1,73 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+    
+//=====STRUCK CLIENTE=====//
+struct Cliente{
+char nome[50];
+char cpf[30];
+char endereco[30];
+char telefone[30];
+};
+
+//=====STRUCK JAZIGO=====//
+struct Jazigo{
+char responsavel[50];
+char cpf[30];
+char localizacao[50];
+int capacidade;
+};
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+    
+    int opcao;
+    struct Cliente cliente;
+    struct Jazigo jazigo;
+    
+do{
+
+printf("\n=====MENU PRINCIPAL=====\n");
+printf("1- Cadastrar cliente\n");
+printf("2- Cadastrar Jazigo\n");
+printf("3- Sair\n");
+printf("Escolha uma opcao: ");
+scanf("%d" , &opcao);
+
+switch(opcao) {
+    case 1: 
+    printf("Nome: ");
+    scanf(" %[^\n]", cliente.nome);
+    
+    printf("cpf: ");
+    scanf(" %[^\n]", cliente.cpf);
+    
+    printf("endereço: ");
+    scanf(" %[^\n]", cliente.endereco);
+    
+    printf("telefone: ");
+    scanf(" %[^\n]", cliente.telefone);
+    
+    printf("cliente cadastrado!\n");
+    break;
+    
+case 2:
+printf("responsavel: ");
+scanf(" %[^\n]", cliente.responsavel);
+
+printf("cpf: ");
+scanf(" %[^\n]", cliente.cpf);
+
+printf("localizacao: ");
+scanf(" %[^\n]", cliente.localizacao);
+
+printf("capacidade: ");
+scanf(" %[^\n]", cliente.capacidade);
+
+printf("jazigo cadastrado!\n");
+break;
+
+
+
+    return 0;
+}
