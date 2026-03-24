@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <string.h>
     
 //=====STRUCK CLIENTE=====//
 struct Cliente{
@@ -62,12 +63,12 @@ printf("localizacao: ");
 scanf(" %[^\n]", jazigo.localizacao);
 
 printf("capacidade: ");
-scanf(" %[^\n]", jazigo.capacidade);
+scanf("%d", &jazigo.capacidade);
 
 printf("jazigo cadastrado!\n");
 break;
+}
 
-asdasd
-
+//} while (opcao != 3);//
     return 0;
 }
