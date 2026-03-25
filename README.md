@@ -11,9 +11,9 @@ O sistema permite controlar a disponibilidade, reserva e ocupação de jazigos, 
 
 
 O sistema tem como principais objetivos:
-Gerenciar clientes responsáveis por jazigos
-Controlar a disponibilidade e ocupação dos jazigos
-Facilitar a organização das informações
+Gerenciar clientes responsáveis por jazigos,
+controlar a disponibilidade e ocupação dos jazigos e 
+facilitar a organização das informações
 
 
 👥 Público-Alvo
