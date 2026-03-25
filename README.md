@@ -85,4 +85,4 @@ Cada jazigo possui um status:
 ⚙️ Tecnologias Utilizadas
 
 Linguagem C
-Compilador GCC (ou equivalente)
+
