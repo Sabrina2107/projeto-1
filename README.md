@@ -1,13 +1,13 @@
-📄 Sistema de Reserva de Jazigos
+📄 **Sistema de Reserva de Jazigos**
 
-📌 Visão Geral
+📌 **Visão Geral**
 
 
 O Sistema de Reserva de Jazigos é uma aplicação desenvolvida em linguagem C, destinada ao gerenciamento de clientes e jazigos em cemitérios.
 O sistema permite controlar a disponibilidade, reserva e ocupação de jazigos, além de manter o cadastro dos responsáveis.
 
 
-🎯 Objetivo
+🎯 **Objetivo**
 
 
 O sistema tem como principais objetivos:
@@ -16,17 +16,17 @@ controlar a disponibilidade e ocupação dos jazigos e
 facilitar a organização das informações
 
 
-👥 Público-Alvo
+👥 **Público-Alvo**
 
 Funcionários de cemitérios
 Administradores de espaços funerários
 
 
-🧩 Funcionalidades
+🧩 **Funcionalidades**
 
 
 
-✅ 1. Cadastro de Clientes / Responsáveis
+✅ **1. Cadastro de Clientes / Responsáveis**
 
 Permite cadastrar clientes com os seguintes dados:
 
@@ -43,7 +43,7 @@ Permite cadastrar clientes com os seguintes dados:
 -Endereço
 
 
-✅ 2. Cadastro de Jazigos
+✅ **2. Cadastro de Jazigos**
 
 Permite cadastrar jazigos com:
 
@@ -60,7 +60,7 @@ Permite cadastrar jazigos com:
 -Capacidade (quantidade de corpos suportados)
 
 
-✅ 3. Controle de Status dos Jazigos
+✅ **3. Controle de Status dos Jazigos**
 
 Cada jazigo possui um status:
 
@@ -73,7 +73,7 @@ Cada jazigo possui um status:
 🔴 Ocupado → Em uso
 
 
-✅ 4. Associação Cliente ↔ Jazigo
+✅ **4. Associação Cliente ↔ Jazigo**
 
 
 -Um jazigo deve estar vinculado a um responsável via CPF
@@ -82,7 +82,7 @@ Cada jazigo possui um status:
 -Um cliente pode possuir um ou mais jazigos
 
 
-⚙️ Tecnologias Utilizadas
+⚙️ **Tecnologias Utilizadas**
 
 Linguagem C
 
