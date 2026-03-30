@@ -2,73 +2,130 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <string.h>
-    
-//=====STRUCK CLIENTE=====//
-struct Cliente{
-char nome[50];
-char cpf[30];
-char endereco[30];
-char telefone[30];
+//STRUCTS//
+struct Cliente {
+    char nome[50];
+    char cpf[30];
+    char endereco[50];
+    char telefone[30];
 };
-
-//=====STRUCK JAZIGO=====//
-struct Jazigo{
-char responsavel[50];
-char cpf[30];
-char localizacao[50];
-int capacidade;
+struct Vaga {
+    int ocupada;
+    char falecido[50];
 };
-
-int main(){
-    setlocale(LC_ALL, "portuguese");
-    
-    int opcao;
-    struct Cliente cliente;
-    struct Jazigo jazigo;
-    
-do{
-
-printf("\n=====MENU PRINCIPAL=====\n");
-printf("1- Cadastrar cliente\n");
-printf("2- Cadastrar Jazigo\n");
-printf("3- Sair\n");
-printf("Escolha uma opcao: ");
-scanf("%d" , &opcao);
-
-switch(opcao) {
-    case 1: 
+struct Lote {
+    struct Vaga vagas[2];
+};
+struct Quadra {
+    struct Lote lotes[5];
+};
+//FUNÇÕES//
+void cadastrarCliente(struct Cliente *c) // ponteiro ao cliente, que recebe o endereço de memória do cliente
+{
+    printf("\n--- Cadastrar Cliente ---\n");
     printf("Nome: ");
-    scanf(" %[^\n]", cliente.nome);
-    
-    printf("cpf: ");
-    scanf(" %[^\n]", cliente.cpf);
-    
-    printf("endereço: ");
-    scanf(" %[^\n]", cliente.endereco);
-    
-    printf("telefone: ");
-    scanf(" %[^\n]", cliente.telefone);
-    
-    printf(" cliente.cadastrado!\n");
-    break;
-    
-case 2:
-printf("responsavel: ");
-scanf(" %[^\n]", jazigo.responsavel);
-
-printf("cpf: ");
-scanf(" %[^\n]", jazigo.cpf);
-
-printf("localizacao: ");
-scanf(" %[^\n]", jazigo.localizacao);
-
-printf("capacidade: ");
-scanf("%d", &jazigo.capacidade);
-
-printf("jazigo cadastrado!\n");
-break;
+    scanf(" %[^\n]", c->nome);
+    printf("CPF: ");
+    scanf(" %[^\n]", c->cpf);
+    printf("Endereço: ");
+    scanf(" %[^\n]", c->endereco);
+    printf("Telefone: ");
+    scanf(" %[^\n]", c->telefone);
+    printf("Cliente cadastrado!\n");
 }
 
-//} while (opcao != 3);//
+void cadastrarjazigo(struct Quadra quadras[]) 
+{
+    int q, l, v;  
+    printf("\n--- Cadastrar Jazigo ---\n");
+    printf("Escolha sua quadra de 1 a 4: ");        
+    scanf("%d", &q);
+    printf("Escolha seu lote de 1 a 5: ");
+    scanf("%d", &l);
+    printf("Escolha sua vaga de 1 a 2: ");
+    scanf("%d", &v);
+    printf("Jazigo cadastrado!\n");
+
+    if (q < 1 || q > 4 || l < 1 || l > 5 || v < 1 || v > 2) {  //Valida se os valores estão no intervalo correto
+        printf("Quadra,lote ou vaga inválidos!\n");
+        return;
+    }
+
+q--; l--; v--; // Ajusta os índices para acessar os arrays (0-3 para quadras, 0-4 para lotes, 0-1 para vagas)
+
+if (quadras[q].lotes[l].vagas[v].ocupada = 1) // Verifica se a vaga já está ocupada
+{
+    printf("Vaga ocupada!\n");
+    return;
+}
+// Solicita o nome do falecido e marca a vaga como ocupada
+printf("Digite o nome do falecido: ");
+scanf(" %[^\n]", quadras[q].lotes[l].vagas[v].falecido); {}  
+quadras[q].lotes[l].vagas[v].ocupada = 1; 
+printf("Jazigo Q%d L%d V%d cadastrado para %s!\n", q + 1, l + 1, v + 1);
+}
+
+void listarjazigos(struct Quadra quadras[]) 
+{
+    // Exibe o mapa do cemitério, mostrando o status de cada vaga
+    printf("\n--- Mapa do Jazigo ---\n");
+     for (int q = 0; q < 4; q++) { // Percorre todas as quadras, lotes e vagas para exibir o status de cada vaga
+        printf("Quadra %d:\n", q + 1); 
+        for (int l = 0; l < 5; l++) {  
+            printf("  Lote %d: ", l + 1);
+            for (int v = 0; v < 2; v++) {  // Verifica se a vaga está ocupada e exibe o nome do falecido ou "LIVRE"
+                if (quadras[q].lotes[l].vagas[v].ocupada == 1) { 
+                    printf("[V%d: %s] ", v + 1, quadras[q].lotes[l].vagas[v].falecido); // Exibe o nome do falecido se a vaga estiver ocupada
+                } else {
+                    printf("[V%d: LIVRE] ", v + 1); // Exibe "LIVRE" se a vaga estiver desocupada
+                } 
+            }
+            printf("\n");
+        }
+    }
+}
+
+//MAIN//
+int main() {
+    setlocale(LC_ALL, "Portuguese");
+    struct Cliente cliente;
+    struct Quadra quadras[4] = {0}; // Inicializa as quadras com zeros (vagas desocupadas)
+    int opcao; // Variável para armazenar a opção do menu
+
+    for (int q = 0; q < 4; q++) 
+        for (int l = 0; l < 5; l++) 
+            for (int v = 0; v < 2; v++) {
+                quadras[q].lotes[l].vagas[v].ocupada = 0;
+                strcpy(quadras[q].lotes[l].vagas[v].falecido, ""); // Inicializa o nome do falecido como vazio
+            }
+
+    do {
+        printf("\n--- Menu ---\n");
+        printf("1. Cadastrar Cliente\n");
+        printf("2. Cadastrar Jazigo\n");
+        printf("3. Listar Jazigos\n");
+        printf("4. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao); // Lê a opção do usuário
+
+        switch (opcao) { // Executa a função correspondente à opção escolhida
+            case 1:
+                cadastrarCliente(&cliente); // Passa o endereço do cliente para a função
+                break;
+            case 2:
+                cadastrarjazigo(quadras); // Passa o array de quadras para a função
+                break;
+            case 3:
+                listarjazigos(quadras); // Passa o array de quadras para a função
+                break;
+            case 4:
+                printf("Saindo.\n");
+                break;
+            default:
+                printf("Opção inválida, tente novamente.\n");
+        }
+    } while (opcao != 4); // Continua exibindo o menu até que o usuário escolha sair (opção 4)
+
+    
     return 0;
 }
