@@ -27,7 +27,7 @@ typedef struct {
 //================ FUNÇÕES =================//
 void limparBuffer() {
     int c;
-    while ((c = getchar()) != && c != EOF);
+    while ((c = getchar()) != '\n' && c != EOF);
 }
 
 void paraMinusculo(char *s) {
