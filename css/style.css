@@ -27,6 +27,7 @@ body {
     color: #1d1c1c;
     padding: 30px 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(55px);
 }
 
 .container h1 {
@@ -121,5 +122,9 @@ body {
  .register-link a {
     text-decoration: none;
     color: #fff;
-    font-weight: ;
+    font-weight: 500;
  }
+
+.register-link a:hover {
+     text-decoration: underline;
+}
