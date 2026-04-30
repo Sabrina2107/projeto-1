@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100px; 
+    min-height: 100vh; 
     background: url(./img/tho-ge-angel-7026445_1920.jpg);
     background-size: cover;
     background-position: center;
@@ -99,7 +99,7 @@ body {
     border-radius: 40px;
     cursor: pointer;
     font-size: 16px;
-    color:rgba(231, 199, 91, 0.747);
+    color: #fff;
     font-weight: 600;
     box-shadow: 0 0 10px #1d1c1c;
     margin-top: 20px;
