@@ -20,7 +20,7 @@ body {
 .container {
     width: 420px;
     background-color: transparent;
-    border: 2px solid rgb(255, 255, 255, .2);
+    border: 2px solid rgba(255, 255, 255, .2);
     border-radius: 10px;
     color: #1d1c1c;
     padding: 30px 40px;
@@ -103,13 +103,13 @@ body {
     font-weight: 600;
     box-shadow: 0 0 10px #1d1c1c;
     margin-top: 20px;
+    transition: 0.5s;
 }
 
 .login:hover {
     background-color: #333;
     border: 2px solid rgba(180, 206, 109, 0.534);
     color:rgb(219, 208, 102);
-    transition: 0.5s;
 }
 
 .register-link {
